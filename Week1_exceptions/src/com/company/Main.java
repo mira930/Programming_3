@@ -1,7 +1,5 @@
 package com.company;
 
-import java.io.FileNotFoundException;
-
 public class Main {
 
     public static void main(String[] args)   {
@@ -77,7 +75,13 @@ public class Main {
 
         System.out.println(account.getBalance());
 
-        account.deposit(500);
+        
+        try {
+        account.deposit(-500);
+        } catch (InvalidAmountException e) {
+        System.out.println(e.getMessage());
+        }
+
 
         System.out.println(
                 "Balance: " + account.getBalance()
